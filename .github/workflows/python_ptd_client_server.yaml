@@ -73,6 +73,7 @@ jobs:
       run: |
         python3 -m pip install --upgrade pip
         python3 -m pip install cmind
+        echo "${{ secrets.ACCESS_TOKEN }}"
         cm pull repo mlcommons@ck
         cm run script --quiet --tags=get,sys-utils-cm
 
