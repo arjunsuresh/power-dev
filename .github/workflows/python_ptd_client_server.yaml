@@ -68,12 +68,15 @@ jobs:
         python-version: ${{ matrix.python-version }}
         access-token: ${{ secrets.ACCESS_TOKEN }}
         repo-token: ${{ secrets.ACCESS_TOKEN }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
     - name: Install dependencies
       run: |
         python3 -m pip install --upgrade pip
         python3 -m pip install cmind
         echo ${{ secrets.ACCESS_TOKEN }}
+        echo ${{ GITHUB_TOKEN }}
         cm pull repo mlcommons@ck
         cm run script --quiet --tags=get,sys-utils-cm
 
