@@ -25,6 +25,7 @@ import re
 import traceback
 import uuid
 
+
 class LineWithoutTimeStamp(Exception):
     pass
 
